@@ -9,17 +9,23 @@ public class Main {
             throw new ArithmeticException("Такого размера нет в даной линейке") {
             };
         }
-        System.out.println(isNumber("88"));
+        isDigit();
     }
 
-    public static String isNumber(String sentence1) {
+    public static void isDigit() {
+        String sentence1 = "OUGLIGI";
+        char[] charArray = sentence1.toCharArray();
         try {
-            Integer.parseInt(sentence1);
-            return "Цифры есть";
-        } catch (NumberFormatException e) {
-            return "Цифр нет";
+            for (char c : charArray) {
+                if (Character.isDigit(c)) {
+                    throw new IllegalArgumentException("Цифры есть");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-   }
+        System.out.println("Цифр нет");
+    }
 }
 
 
